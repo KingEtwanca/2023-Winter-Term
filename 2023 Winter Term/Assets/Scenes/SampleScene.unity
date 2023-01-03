@@ -275,8 +275,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 687d960e2731e4f379851b2bb0b12167, type: 3}
-  m_Color: {r: 0.7924528, g: 0.1839089, b: 0.1839089, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 59c1d1963f519bb44871a7e8d1e7c1a3, type: 3}
+  m_Color: {r: 0.8490566, g: 0.22908509, b: 0.22908509, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -327,7 +327,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &1700354354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,5 +340,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24aa54e45ca36e47923007506cecb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 10
   player: {fileID: 1700354353}

@@ -30,5 +30,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //physics here
         player.MovePosition(player.position+movement*movementSpeed*Time.fixedDeltaTime);
+        player.SetRotation(movement.x*-90 + movement.y*180);
     }
 }
