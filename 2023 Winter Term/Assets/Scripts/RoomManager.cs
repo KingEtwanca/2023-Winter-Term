@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class RoomManager : MonoBehaviour
 {
-    //this script will run the game
 
+
+    //this script will load rooms from the rooms script
 
     // Start is called before the first frame update
     void Start()

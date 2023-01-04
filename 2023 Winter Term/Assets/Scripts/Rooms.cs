@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using Random = UnityEngine.Random;
 
-public class BoardManager : MonoBehaviour
+public class Rooms : MonoBehaviour
+
+
+    //this script will hold the room layouts
 {
     // Start is called before the first frame update
     void Start()
