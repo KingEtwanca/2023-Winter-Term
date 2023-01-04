@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - exit
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Blocking Layer
   - Water
   - UI
   - 
@@ -40,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: floor
+    uniqueID: 4176554481
+    locked: 0
+  - name: items
+    uniqueID: 3011312839
+    locked: 0
+  - name: player
+    uniqueID: 1408307353
     locked: 0
