@@ -1,8 +1,8 @@
 using Unity.Entities;
 using UnityEngine;
-public class UnitMoveOrderSystem : ComponentSystem {
-   
-    protected override void OnUpdate() { 
+public class UnitMoveOrderSystem : IComponentData {
+
+    protected void OnUpdate() { 
 
     }
 }
