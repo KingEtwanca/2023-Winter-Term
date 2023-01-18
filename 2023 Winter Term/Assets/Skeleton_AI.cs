@@ -32,7 +32,7 @@ public class Skeleton_AI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
-        InvokeRepeating("RangeCheck", 0f, 1.5f);
+        InvokeRepeating("RangeCheck", 0f, 3.2f);
 
     }
 
