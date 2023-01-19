@@ -20,6 +20,8 @@ public class Skeleton_AI : MonoBehaviour
     public LayerMask PlayerLayer;
     public bool IsInRange = false;
     public bool IsAttacking = false;
+    public bool canHit = false;
+    private bool hitThisAttack = false;
 
     Path path;
     int currentWaypoint = 0;
@@ -77,7 +79,7 @@ public class Skeleton_AI : MonoBehaviour
 
     public void startThrust() {
         rb.isKinematic = false;
-        Vector2 direction = new Vector2(target.position.x - rb.position.x, target.position.y - rb.position.y);
+        Vector2 direction = new Vector2(target.position.x - rb.position.x,target.position.y - rb.position.y);
         rb.AddForce(direction*Time.fixedDeltaTime*speed*5);
 
     }
@@ -99,6 +101,17 @@ public class Skeleton_AI : MonoBehaviour
         Debug.Log("You've been hit!");
     }
 
+    public void ActivateHitbox() {
+        Debug.Log("hitbox triggered");
+        canHit = true;
+    }
+
+    public void DeactivateHitbox() {
+        canHit = false;
+    }
+
+    
+
     private void OnDrawGizmosSelected() {
         Gizmos.DrawLine(AttackPoint.position- new Vector3(AttackRange.x/2,0,0),AttackPoint.position+ new Vector3(AttackRange.x / 2, 0, 0));
         Gizmos.DrawLine(AttackPoint.position - new Vector3(0, AttackRange.y / 2, 0), AttackPoint.position + new Vector3(0, AttackRange.y / 2, 0));
@@ -115,6 +128,14 @@ public class Skeleton_AI : MonoBehaviour
         }   
         else {
             reachedEndOfPath = false;
+        }
+
+        if (canHit) {
+            Collider2D hitplayer = Physics2D.OverlapCapsule(SkeletonGFX.position, AttackRange, CapsuleDirection2D.Horizontal, 0, PlayerLayer);
+            if (hitplayer) {
+                canHit = false;
+                target.GetComponent<PlayerMovement>().GetHit(10);
+            }
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;

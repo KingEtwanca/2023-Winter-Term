@@ -20,4 +20,13 @@ public class AnimatorToSkeleton : MonoBehaviour
     {
         Skeleton.GetComponent<Skeleton_AI>().endThrust();
     }
+
+    public void AHitbox() {
+        Skeleton.GetComponent<Skeleton_AI>().ActivateHitbox();
+    }
+
+    public void DHitbox()
+    {
+        Skeleton.GetComponent<Skeleton_AI>().DeactivateHitbox();
+    }
 }

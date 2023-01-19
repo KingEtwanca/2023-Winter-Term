@@ -48,7 +48,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -76,6 +76,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   player: {fileID: 2773089224558627928}
+  playerGFX: {fileID: 2773089224687335503}
+  playerAnim: {fileID: 2773089224687335502}
+  health: 100
+  alive: 1
+  gettingHit: 0
 --- !u!70 &2773089224358455205
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -122,6 +127,7 @@ GameObject:
   - component: {fileID: 2773089224687335503}
   - component: {fileID: 2773089224687335489}
   - component: {fileID: 2773089224687335502}
+  - component: {fileID: 1659710761}
   m_Layer: 9
   m_Name: PlayerGFX
   m_TagString: Untagged
@@ -216,3 +222,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1659710761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773089224687335500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5664a746ec8b72b4b9d1277430723890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

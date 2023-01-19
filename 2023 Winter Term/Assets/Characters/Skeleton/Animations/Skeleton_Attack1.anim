@@ -105,8 +105,22 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.5
+    functionName: AHitbox
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.9166667
     functionName: endThrust
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.9166667
+    functionName: DHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

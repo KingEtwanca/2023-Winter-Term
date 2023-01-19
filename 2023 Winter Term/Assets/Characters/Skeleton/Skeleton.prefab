@@ -182,6 +182,7 @@ MonoBehaviour:
     m_Bits: 512
   IsInRange: 0
   IsAttacking: 0
+  canHit: 0
 --- !u!1 &7384255901216848660
 GameObject:
   m_ObjectHideFlags: 0

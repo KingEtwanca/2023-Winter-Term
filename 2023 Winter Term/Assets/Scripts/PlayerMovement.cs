@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D player;
     public Transform playerGFX;
     public Animator playerAnim;
+    public int health = 100;
+    public bool alive = true;
+    public bool gettingHit = false;
 
     Vector2 movement;
 
@@ -26,9 +29,14 @@ public class PlayerMovement : MonoBehaviour
     //do physics in here
     private void FixedUpdate()
     {
+        if(health <= 0 && alive) {
+            Die();
+        }
         //physics here
-        
-        player.MovePosition(player.position+movement*movementSpeed*Time.fixedDeltaTime);
+
+        if (!gettingHit) {
+            player.MovePosition(player.position + movement * movementSpeed * Time.fixedDeltaTime);
+        }
 
 
 
@@ -36,12 +44,12 @@ public class PlayerMovement : MonoBehaviour
         {
             startIdle();
         }
-        else if (movement.x >= 0.01f)
+        else if (movement.x >= 0.01f && alive)
         {
             playerGFX.localScale = new Vector3(math.abs(playerGFX.localScale.x), playerGFX.localScale.y, 1f);
             startRun();
         }
-        else if (movement.x <= 0.01f)
+        else if (movement.x <= 0.01f && alive)
         {
             playerGFX.localScale = new Vector3(math.abs(playerGFX.localScale.x) * -1f, playerGFX.localScale.y, 1f);
             startRun();
@@ -54,5 +62,27 @@ public class PlayerMovement : MonoBehaviour
 
     public void startIdle() {
         playerAnim.SetTrigger("Idle");
+    }
+
+    public void GetHit(int dmg)
+    {
+        if (alive)
+        {
+            gettingHit = true;
+            playerAnim.SetTrigger("GetHit");
+            health -= dmg;
+            Debug.Log(health);
+            Invoke("unstuck",0.5f);
+        }
+    }
+
+    private void unstuck() {
+        gettingHit = false;
+    }
+
+    public void Die() {
+        alive = false;
+        playerAnim.SetTrigger("Die");
+        movementSpeed = 0f;
     }
 }
