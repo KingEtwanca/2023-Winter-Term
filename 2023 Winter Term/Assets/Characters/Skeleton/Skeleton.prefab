@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &189970052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 189970053}
+  m_Layer: 8
+  m_Name: Skeleton_Hurtbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &189970053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189970052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2304845767448558608}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2304845767448558610
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,8 +64,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7384255901216848663}
+  - {fileID: 189970053}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7384255901617735127
 Rigidbody2D:
@@ -95,8 +127,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03721247, y: -0.0111639025}
-  m_Size: {x: 0.3660349, y: 0.60554695}
+  m_Offset: {x: 0.016073419, y: 0}
+  m_Size: {x: 0.33388805, y: 0.60554695}
   m_Direction: 0
 --- !u!114 &7384255901617735120
 MonoBehaviour:
@@ -142,6 +174,14 @@ MonoBehaviour:
   speed: 10000
   nextWaypointDistance: 3
   SkeletonGFX: {fileID: 7384255901216848663}
+  skeletonAnimator: {fileID: 7384255901216848662}
+  AttackPoint: {fileID: 189970053}
+  AttackRange: {x: 7, y: 3}
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  IsInRange: 0
+  IsAttacking: 0
 --- !u!1 &7384255901216848660
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +193,7 @@ GameObject:
   - component: {fileID: 7384255901216848663}
   - component: {fileID: 7384255901216848657}
   - component: {fileID: 7384255901216848662}
+  - component: {fileID: 1359371072}
   m_Layer: 8
   m_Name: SkeletonGFX
   m_TagString: Untagged
@@ -247,3 +288,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1359371072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7384255901216848660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b026e7a4b91f8f42bcbff535eeccf1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Skeleton: {fileID: 2304845767448558610}
