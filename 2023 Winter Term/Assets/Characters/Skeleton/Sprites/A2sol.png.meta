@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 267c7fb536f99514ea7c4e7236d4bdf8
+guid: 49fd205d831b62f40b316d910aa7c4ad
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack2_0
+      name: A2sol_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,20 +127,20 @@ TextureImporter:
         width: 150
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c5a88bc1ba2d5641b1133d0fb7956c8
-      internalID: -1807002980
+      spriteID: c7923e9e8eb5e3540aca4aa5ff93ebfe
+      internalID: 1116179355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack2_1
+      name: A2sol_1
       rect:
         serializedVersion: 2
         x: 150
@@ -148,20 +148,20 @@ TextureImporter:
         width: 150
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6399453c1118cb4096389a553e99bac
-      internalID: 849839237
+      spriteID: 7c21a2e573ad4f24db14f33730d0dad2
+      internalID: -2142946930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack2_2
+      name: A2sol_2
       rect:
         serializedVersion: 2
         x: 300
@@ -169,20 +169,20 @@ TextureImporter:
         width: 150
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd8952782f1d4dc418a548bab82b982d
-      internalID: -1740666115
+      spriteID: f1e7925b200f28d439081c335487a9b7
+      internalID: 1122901811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack2_3
+      name: A2sol_3
       rect:
         serializedVersion: 2
         x: 450
@@ -190,20 +190,20 @@ TextureImporter:
         width: 150
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad48ff0b7c4062b41b86983f44a263d9
-      internalID: -2048402140
+      spriteID: 7c61582640b4d09419eb03dd5951b0e2
+      internalID: 677958031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack2_4
+      name: A2sol_4
       rect:
         serializedVersion: 2
         x: 600
@@ -211,20 +211,20 @@ TextureImporter:
         width: 150
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77377e12730d60d488b9176ad8772728
-      internalID: -200116039
+      spriteID: 8a21f16ad26c29346bc5f1fbe8315c95
+      internalID: -2106739099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack2_5
+      name: A2sol_5
       rect:
         serializedVersion: 2
         x: 750
@@ -232,20 +232,20 @@ TextureImporter:
         width: 150
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 997ac25453f50ab45ab7a6b4629c89ae
-      internalID: -904065353
+      spriteID: aad90e9d85212ec458b204f427f0dcf3
+      internalID: 2037214265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack2_6
+      name: A2sol_6
       rect:
         serializedVersion: 2
         x: 900
@@ -253,20 +253,20 @@ TextureImporter:
         width: 150
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73b74f154d2b8cc41b6e213639ead18b
-      internalID: -62037975
+      spriteID: 9d18eaf0e589922428100288d16d34b0
+      internalID: -1004950556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack2_7
+      name: A2sol_7
       rect:
         serializedVersion: 2
         x: 1050
@@ -274,14 +274,35 @@ TextureImporter:
         width: 150
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 143f319f23587f0409564f2d7beda87e
-      internalID: 184842928
+      spriteID: b2b06aa8b0ccc264bac905f994b04b9f
+      internalID: -2045185734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A2sol_8
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041f9b2836a3f784386445e2f975bdba
+      internalID: -1022102933
       vertices: []
       indices: 
       edges: []
@@ -297,14 +318,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack2_5: -904065353
-      Attack2_6: -62037975
-      Attack2_4: -200116039
-      Attack2_2: -1740666115
-      Attack2_7: 184842928
-      Attack2_1: 849839237
-      Attack2_3: -2048402140
-      Attack2_0: -1807002980
+      A2sol_2: 1122901811
+      A2sol_0: 1116179355
+      A2sol_3: 677958031
+      A2sol_8: -1022102933
+      A2sol_1: -2142946930
+      A2sol_5: 2037214265
+      A2sol_6: -1004950556
+      A2sol_7: -2045185734
+      A2sol_4: -2106739099
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

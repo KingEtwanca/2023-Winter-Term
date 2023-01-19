@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using Unity.Mathematics;
 
 public class Skeleton_AI : MonoBehaviour
 {
 
     public Transform target;
 
+
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
     public Transform SkeletonGFX;
     public Animator skeletonAnimator;
 
-    public Transform AttackPoint;          //to check if play is in range          
+    public Transform AttackPoint;          //to check if player is in range          
     public Vector2 AttackRange= new Vector2(2,1);    
     public LayerMask PlayerLayer;
     public bool IsInRange = false;
+    public bool IsAttacking = false;
 
     Path path;
     int currentWaypoint = 0;
@@ -32,7 +35,7 @@ public class Skeleton_AI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
-        InvokeRepeating("RangeCheck", 0f, 3.2f);
+        InvokeRepeating("RangeCheck", 0f, 0.01f);
 
     }
 
@@ -52,17 +55,40 @@ public class Skeleton_AI : MonoBehaviour
 
     void RangeCheck() {
         Collider2D hitplayer = Physics2D.OverlapCapsule(SkeletonGFX.position, AttackRange, CapsuleDirection2D.Horizontal , 0, PlayerLayer);
-        if (hitplayer == true)
-        {
+        if (hitplayer == true && !IsAttacking) {
             IsInRange = true;
             Attack1();
         }
         else {
             IsInRange = false;
         }
-    }    
+    }  
+    
+    public void startAttack() { //fcn to start attack on animation event
+        IsAttacking = true;
+        rb.velocity = new Vector2(0,0);
+        rb.isKinematic = true;
+    }
+
+    public void endAttack() { //fcn to end attack on animation event
+        IsAttacking = false;
+        rb.isKinematic = false;
+    }
+
+    public void startThrust() {
+        rb.isKinematic = false;
+        Vector2 direction = new Vector2(target.position.x - rb.position.x, target.position.y - rb.position.y);
+        rb.AddForce(direction*Time.fixedDeltaTime*speed*5);
+
+    }
+
+    public void endThrust() {
+        rb.velocity = Vector2.zero;
+        rb.isKinematic = true;
+    }
 
     void Attack1() {
+
         //play attack animation
         skeletonAnimator.SetTrigger("Attack1");
 
@@ -79,8 +105,7 @@ public class Skeleton_AI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         if (path == null)
             return;
 
@@ -95,7 +120,10 @@ public class Skeleton_AI : MonoBehaviour
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
-        rb.AddForce(force);
+        if (!IsAttacking)
+        {
+            rb.AddForce(force);
+        }
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
@@ -103,7 +131,11 @@ public class Skeleton_AI : MonoBehaviour
             currentWaypoint++;
         }
 
-        if(rb.velocity.x >= 0.01f) {
+
+        if (rb.velocity == Vector2.zero) {
+
+        }
+        else if(rb.velocity.x >= 0.01f) {
             SkeletonGFX.localScale = new Vector3(1f, 1f, 1f);
         }
         else if (rb.velocity.x <= 0.01f) {
