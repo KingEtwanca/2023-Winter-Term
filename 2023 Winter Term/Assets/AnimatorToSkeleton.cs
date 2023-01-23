@@ -33,4 +33,8 @@ public class AnimatorToSkeleton : MonoBehaviour
     public void Die() {
         Skeleton.GetComponent<Skeleton_AI>().Die();
     }
+
+    public void GetHit() {
+        Skeleton.GetComponent<Skeleton_AI>().GetHit();
+    }
 }

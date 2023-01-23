@@ -20,7 +20,6 @@ public class RoomManager : MonoBehaviour
     void Update()
     {
         if(activeEmemies == 0) {
-            Debug.Log("All dead");
             DestroyDoors();
         }
     }

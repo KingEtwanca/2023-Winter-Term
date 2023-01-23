@@ -14,6 +14,8 @@ public class Skeleton_AI : MonoBehaviour
     public float nextWaypointDistance = 3f;
     public Transform SkeletonGFX;
     public Animator skeletonAnimator;
+    public int MaxHealth = 10;
+    int currentHealth;
 
     public Transform AttackPoint;          //to check if player is in range          
     public Vector2 AttackRange= new Vector2(2,1);    
@@ -25,6 +27,10 @@ public class Skeleton_AI : MonoBehaviour
     public bool Alive = true;
     public RoomManager CurrentRoom;
 
+
+    //variables for getting hit by player
+    public bool GotHitThisAttack = false;
+
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
@@ -35,12 +41,12 @@ public class Skeleton_AI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = MaxHealth;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
         InvokeRepeating("RangeCheck", 0f, 0.01f);
-        Invoke("Die", 7);
 
     }
 
@@ -104,13 +110,9 @@ public class Skeleton_AI : MonoBehaviour
 
         //play attack animation
         skeletonAnimator.SetTrigger("Attack1");
-
-        //deal damage
-        Debug.Log("You've been hit!");
     }
 
     public void ActivateHitbox() {
-        Debug.Log("hitbox triggered");
         canHit = true;
     }
 
@@ -120,11 +122,31 @@ public class Skeleton_AI : MonoBehaviour
 
     public void Die() {
         Alive = false;
-        Debug.Log("Skeleton is now dead");
         skeletonAnimator.SetTrigger("SkeletonDeath");
         CurrentRoom.activeEmemies--;
     }
 
+    public void TakeDamage(int dmg) {
+        if (Alive && !GotHitThisAttack) { 
+            currentHealth -= dmg;
+            GotHitThisAttack = true;
+            Invoke("unGetHit",0.5f);
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    public void GetHit() {
+        if (!IsAttacking)  {
+            skeletonAnimator.SetTrigger("GetHit");
+        }
+    }
+
+    public void unGetHit() { 
+        GotHitThisAttack = false;
+    }
     
 
     private void OnDrawGizmosSelected() {

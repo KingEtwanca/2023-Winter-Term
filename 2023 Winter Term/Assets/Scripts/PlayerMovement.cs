@@ -13,6 +13,13 @@ public class PlayerMovement : MonoBehaviour
     public bool alive = true;
     public bool gettingHit = false;
 
+    public Transform AttackPoint;
+    public float AttackRange = 0.8f;
+    public LayerMask EnemyLayers;
+
+    //variables for attacking
+    public bool isAttacking = false;
+
     Vector2 movement;
 
 
@@ -38,20 +45,42 @@ public class PlayerMovement : MonoBehaviour
             player.MovePosition(player.position + movement * movementSpeed * Time.fixedDeltaTime);
         }
 
+        // detect attack
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Attack();
+        }
+
+        //if the player is attacking 
+        if (isAttacking) {
+            //detect enemies in range
+            Collider2D[] hitenemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
+
+
+            //deal damage
+            foreach (Collider2D enemy in hitenemies)
+            {
+                if (enemy.GetComponent<Skeleton_AI>().GotHitThisAttack == false)
+                {
+                    enemy.GetComponent<Skeleton_AI>().TakeDamage(4);
+                }
+            }
+        }
 
 
         if (movement == Vector2.zero)
         {
             startIdle();
         }
+
         else if (movement.x >= 0.01f && alive)
         {
-            playerGFX.localScale = new Vector3(math.abs(playerGFX.localScale.x), playerGFX.localScale.y, 1f);
+            player.transform.localScale = new Vector3(math.abs(player.transform.localScale.x), player.transform.localScale.y, 1f);
             startRun();
         }
         else if (movement.x <= 0.01f && alive)
         {
-            playerGFX.localScale = new Vector3(math.abs(playerGFX.localScale.x) * -1f, playerGFX.localScale.y, 1f);
+            player.transform.localScale = new Vector3(math.abs(player.transform.localScale.x) * -1f, player.transform.localScale.y, 1f);
             startRun();
         }
     }
@@ -92,4 +121,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //attack function
+    public void Attack() {
+        //play animation
+        playerAnim.SetTrigger("Attack");
+
+    }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
+    }
+
+    public void activateHitbox() {
+        isAttacking = true;
+    }
+
+    public void deactivateHitbox() {
+        isAttacking = false;
+    }
 }
