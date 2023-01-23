@@ -85,4 +85,11 @@ public class PlayerMovement : MonoBehaviour
         playerAnim.SetTrigger("Die");
         movementSpeed = 0f;
     }
+
+    public void OnTriggerEnter2D(Collider2D other)  {
+       if(other.tag == "exit") {
+            Debug.Log("on Exit");
+        }
+    }
+
 }

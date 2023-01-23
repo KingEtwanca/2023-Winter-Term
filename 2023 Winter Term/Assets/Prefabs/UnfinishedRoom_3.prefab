@@ -23198,8 +23198,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9111908695781355004}
   - component: {fileID: 9111908695781355003}
+  - component: {fileID: 568111443}
+  - component: {fileID: 568111442}
   m_Layer: 0
-  m_Name: Room_AAC
+  m_Name: UnfinishedRoom_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23221,7 +23223,7 @@ Transform:
   - {fileID: 9111908696262722311}
   - {fileID: 2304845768663958360}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &9111908695781355003
 Grid:
@@ -23235,6 +23237,77 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &568111443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9111908695781355002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAACYn+ucTjGIeQIAADIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty2jAU/RVG68L4wSN01zqEdJGEKe1k440iXWMNQvJIcoBk+PdeyTZ26Apx7uucoyt/EqFsBcxpszaCP2kO5PuI+DP5NuqDj3CiO6224gO6nFfBXemTaMj5TZ3QiMe+zOoDOCPYD7WTPjlCsFai0Oaw4jvItHUW4YJKCxgy2vlqhdDniJzwZ7z0JWc8JQt/+sDTMhpd8MhAOTCD1CSezJM0jReLtmQcLyfpIp3H6bQtnU7SeTSfJatxtAhNasUkPVTAvaK+16ybOmtmKdTaZnhdTEspbEuUuHMVjMhoZWuUiQlcUBQe2MWTBIESxK50Xsaw/KUoLLjWF0PP98Kgg01f8lM3th6o3TfM3qmsA4XkLrBqmj79Fx/HIVwYfXjs5saRn+FKwfa/6ZlR6wa+D+H7AfVg0JHKPX2T8FqCetZro2vFMehM7UtrC8l9//cqLSuB7Xu8oXoD1lXveGd4d8lewyWoP2VSHN58aDJtgK3UwfGwG2Dwbn4h4bA5tm2BqGfx18IfuhuuWBt4EMY6DLUqlaf3pmvjU8kqeObV1C7TRkGAW9IVKCrdeYNt3O0V3sQGY28iD9Q/pnZ4G+veyE1JgPv8KLoJbfTxelm21McnsOVL7aRQ0JP2gWf0KdNKNRs29KQr29amoGxQtqsF/7pahC+L4u6OsogBT9M5jKM4XVB8VOlsyqJpSknYPaFQJ5WbhmhrD96a6psr3LPuGzNaG1qFbeeGHtfi46AHlgtV6C0zAOrlSwcLBmfgs+QrLtCfLTgnVLhu8pkTqdkeeH7Nz4PQ1ckZmvfqc1KJd+08kpMsfFNy4uHrKm8MvAs4+tldswu5/ANQSwMEFAAACAgAAJif6xfoRqFtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKKZVqahUViskFyaoqxsVmqroGhsXmimYGZsalJsoGJcaJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJif65xOMYh5AgAAMgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif6xfoRqFtAAAAeAAAAAkAJAAAAAAAAAAAAAAAxgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB+AwAAAAA=
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 1
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!114 &568111442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9111908695781355002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a634230476dc478b88eceac73b1c8a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  updateDistance: 10
+  target: {fileID: 9111908695781355004}
+  graphIndex: 0
 --- !u!1 &9111908696262722310
 GameObject:
   m_ObjectHideFlags: 0

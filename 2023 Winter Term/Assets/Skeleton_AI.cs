@@ -22,6 +22,8 @@ public class Skeleton_AI : MonoBehaviour
     public bool IsAttacking = false;
     public bool canHit = false;
     private bool hitThisAttack = false;
+    public bool Alive = true;
+    public RoomManager CurrentRoom;
 
     Path path;
     int currentWaypoint = 0;
@@ -38,12 +40,16 @@ public class Skeleton_AI : MonoBehaviour
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
         InvokeRepeating("RangeCheck", 0f, 0.01f);
+        Invoke("Die", 7);
 
     }
 
     void UpdatePath() {
-        if (seeker.IsDone()) {
-            seeker.StartPath(rb.position, target.position, OnPathComplete);
+        if (Alive) {
+            if (seeker.IsDone())
+            {
+                seeker.StartPath(rb.position, target.position, OnPathComplete);
+            }
         }
     }
 
@@ -56,13 +62,18 @@ public class Skeleton_AI : MonoBehaviour
     }
 
     void RangeCheck() {
-        Collider2D hitplayer = Physics2D.OverlapCapsule(SkeletonGFX.position, AttackRange, CapsuleDirection2D.Horizontal , 0, PlayerLayer);
-        if (hitplayer == true && !IsAttacking) {
-            IsInRange = true;
-            Attack1();
-        }
-        else {
-            IsInRange = false;
+        //check if player is in range
+        if (Alive) {
+            Collider2D hitplayer = Physics2D.OverlapCapsule(SkeletonGFX.position, AttackRange, CapsuleDirection2D.Horizontal, 0, PlayerLayer);
+            if (hitplayer == true && !IsAttacking)
+            {
+                IsInRange = true;
+                Attack1();
+            }
+            else
+            {
+                IsInRange = false;
+            }
         }
     }  
     
@@ -94,9 +105,6 @@ public class Skeleton_AI : MonoBehaviour
         //play attack animation
         skeletonAnimator.SetTrigger("Attack1");
 
-
-        //detect if player is in range
-
         //deal damage
         Debug.Log("You've been hit!");
     }
@@ -110,6 +118,13 @@ public class Skeleton_AI : MonoBehaviour
         canHit = false;
     }
 
+    public void Die() {
+        Alive = false;
+        Debug.Log("Skeleton is now dead");
+        skeletonAnimator.SetTrigger("SkeletonDeath");
+        CurrentRoom.activeEmemies--;
+    }
+
     
 
     private void OnDrawGizmosSelected() {
@@ -119,48 +134,58 @@ public class Skeleton_AI : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate() {
-        if (path == null)
-            return;
+        if(Alive) {
+            if (path == null)
+                return;
 
-        if(currentWaypoint >= path.vectorPath.Count) {
-            reachedEndOfPath = true;
-            return;
-        }   
-        else {
-            reachedEndOfPath = false;
-        }
-
-        if (canHit) {
-            Collider2D hitplayer = Physics2D.OverlapCapsule(SkeletonGFX.position, AttackRange, CapsuleDirection2D.Horizontal, 0, PlayerLayer);
-            if (hitplayer) {
-                canHit = false;
-                target.GetComponent<PlayerMovement>().GetHit(10);
+            if (currentWaypoint >= path.vectorPath.Count)
+            {
+                reachedEndOfPath = true;
+                return;
             }
-        }
+            else
+            {
+                reachedEndOfPath = false;
+            }
 
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+            if (canHit)
+            {
+                Collider2D hitplayer = Physics2D.OverlapCapsule(SkeletonGFX.position, AttackRange, CapsuleDirection2D.Horizontal, 0, PlayerLayer);
+                if (hitplayer)
+                {
+                    canHit = false;
+                    target.GetComponent<PlayerMovement>().GetHit(10);
+                }
+            }
 
-        if (!IsAttacking)
-        {
-            rb.AddForce(force);
-        }
+            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            Vector2 force = direction * speed * Time.deltaTime;
 
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+            if (!IsAttacking)
+            {
+                rb.AddForce(force);
+            }
 
-        if(distance < nextWaypointDistance) {
-            currentWaypoint++;
-        }
+            float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+
+            if (distance < nextWaypointDistance)
+            {
+                currentWaypoint++;
+            }
 
 
-        if (rb.velocity == Vector2.zero) {
+            if (rb.velocity == Vector2.zero)
+            {
 
-        }
-        else if(rb.velocity.x >= 0.01f) {
-            SkeletonGFX.localScale = new Vector3(1f, 1f, 1f);
-        }
-        else if (rb.velocity.x <= 0.01f) {
-            SkeletonGFX.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            else if (rb.velocity.x >= 0.01f)
+            {
+                SkeletonGFX.localScale = new Vector3(1f, 1f, 1f);
+            }
+            else if (rb.velocity.x <= 0.01f)
+            {
+                SkeletonGFX.localScale = new Vector3(-1f, 1f, 1f);
+            }
         }
     }
 }

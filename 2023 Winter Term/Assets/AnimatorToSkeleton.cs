@@ -29,4 +29,8 @@ public class AnimatorToSkeleton : MonoBehaviour
     {
         Skeleton.GetComponent<Skeleton_AI>().DeactivateHitbox();
     }
+
+    public void Die() {
+        Skeleton.GetComponent<Skeleton_AI>().Die();
+    }
 }
