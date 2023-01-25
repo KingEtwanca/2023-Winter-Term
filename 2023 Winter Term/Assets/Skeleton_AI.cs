@@ -14,7 +14,7 @@ public class Skeleton_AI : MonoBehaviour
     public float nextWaypointDistance = 3f;
     public Transform SkeletonGFX;
     public Animator skeletonAnimator;
-    public int MaxHealth = 10;
+    public int MaxHealth = 1;
     int currentHealth;
 
     public Transform AttackPoint;          //to check if player is in range          
@@ -23,7 +23,7 @@ public class Skeleton_AI : MonoBehaviour
     public bool IsInRange = false;
     public bool IsAttacking = false;
     public bool canHit = false;
-    private bool hitThisAttack = false;
+    private bool hitThisAttack = false;     //has the player been hit during this attack window?
     public bool Alive = true;
     public RoomManager CurrentRoom;
 
@@ -126,10 +126,28 @@ public class Skeleton_AI : MonoBehaviour
         CurrentRoom.activeEmemies--;
     }
 
+    public void ResetSkeleton(GameObject room)
+    {
+        currentHealth = MaxHealth;
+        Alive = true;
+        IsAttacking = false;
+        IsInRange = false;
+        canHit = false;
+        hitThisAttack = false;
+        GotHitThisAttack = false;
+        skeletonAnimator.SetTrigger("ResetSkeleton");
+        this.CurrentRoom = room.GetComponent<RoomManager>();
+
+        //rerun start 
+        Start();
+
+    }
+
     public void TakeDamage(int dmg) {
         if (Alive && !GotHitThisAttack) { 
             currentHealth -= dmg;
             GotHitThisAttack = true;
+            Debug.Log(currentHealth);
             Invoke("unGetHit",0.5f);
             if (currentHealth <= 0)
             {
@@ -146,6 +164,16 @@ public class Skeleton_AI : MonoBehaviour
 
     public void unGetHit() { 
         GotHitThisAttack = false;
+    }
+
+    public void SetPosition(int x, int y) {
+        this.transform.position = new Vector2(x, y);
+    }
+
+
+    public void SetTarget(GameObject tar) {
+        target = tar.transform;
+        Debug.Log("pls");
     }
     
 

@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movement;
 
+    public bool OnExit = false;
+
 
     // Update is called once per frame
     //generally not a good idea to do physics in update due to frame rates
@@ -117,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)  {
        if(other.tag == "exit") {
-            Debug.Log("on Exit");
+            OnExit = true;
         }
     }
 
@@ -138,5 +140,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void deactivateHitbox() {
         isAttacking = false;
+    }
+
+    public void ResetPlayer() {
+        player.transform.position = Vector2.zero;
+        OnExit = false;
     }
 }
