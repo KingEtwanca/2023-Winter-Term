@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PlayerAnimationToObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public GameObject player;
+
+    public void startAttack() {
+        player.GetComponent<PlayerMovement>().activateHitbox();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void endAttack() {
+        player.GetComponent<PlayerMovement>().deactivateHitbox();
     }
+   
 }

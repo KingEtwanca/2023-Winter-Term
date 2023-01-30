@@ -45,7 +45,7 @@ TagManager:
   - name: floor
     uniqueID: 4176554481
     locked: 0
-  - name: items
+  - name: Exits
     uniqueID: 3011312839
     locked: 0
   - name: obstacles
